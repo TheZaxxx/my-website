@@ -1,13 +1,15 @@
 // Firebase Configuration
 // GANTI dengan config dari Firebase Console Anda
 
+
 const firebaseConfig = {
-    apiKey: "your-api-key-here",
-    authDomain: "your-project.firebaseapp.com",
-    projectId: "your-project-id",
-    storageBucket: "your-project.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "your-app-id-here"
+  apiKey: "AIzaSyDFjRbWcl8T6p7sEAXzbffu9uk66xCiPfo",
+  authDomain: "my-website-users-27cca.firebaseapp.com",
+  projectId: "my-website-users-27cca",
+  storageBucket: "my-website-users-27cca.firebasestorage.app",
+  messagingSenderId: "68032793973",
+  appId: "1:68032793973:web:f65498a1abfcbe145e173c",
+  measurementId: "G-NFF81CZ4SY"
 };
 
 // Initialize Firebase
