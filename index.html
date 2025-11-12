@@ -1,116 +1,273 @@
-<!-- Tambahkan section baru setelah hero -->
-<!-- Features Section -->
-<section id="features" class="features">
-    <div class="container">
-        <div class="section-header">
-            <h2>Why Choose <span class="gradient-text">QuantumMine?</span></h2>
-            <p>Experience the next generation of crypto mining with our cutting-edge technology</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinePoint - Mining Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                <span>MinePoint</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> Profil</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Referral</a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> Task</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Setting</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <div class="balance">
+                    <span class="amount">1,250.75</span>
+                    <span class="currency">MP</span>
+                </div>
+                <div class="user-avatar">
+                    <img src="https://i.pravatar.cc/40" alt="User Avatar">
+                </div>
+            </div>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Lightning Fast</h3>
-                <p>High-speed mining with 99.9% uptime and instant reward distribution</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Secure & Safe</h3>
-                <p>Military-grade encryption and multi-layer security protocols</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>High ROI</h3>
-                <p>Industry-leading returns with transparent fee structure</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </header>
 
-<!-- Mining Dashboard Preview -->
-<section id="mining" class="mining-preview">
-    <div class="container">
-        <div class="preview-container">
-            <div class="preview-content">
-                <h2>Start <span class="gradient-text">Mining</span> in Seconds</h2>
-                <p>Our intuitive dashboard makes crypto mining accessible to everyone</p>
-                <div class="mining-stats">
-                    <div class="mining-stat">
-                        <i class="fas fa-coins"></i>
-                        <div>
-                            <h4>2,458.75</h4>
-                            <span>QTM Earned</span>
-                        </div>
-                    </div>
-                    <div class="mining-stat">
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Mining Stats Section -->
+            <section class="mining-stats">
+                <div class="stats-card">
+                    <div class="stats-icon">
                         <i class="fas fa-microchip"></i>
-                        <div>
-                            <h4>15.2</h4>
-                            <span>TH/s Power</span>
-                        </div>
                     </div>
-                    <div class="mining-stat">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>12</h4>
-                            <span>Referrals</span>
-                        </div>
+                    <div class="stats-info">
+                        <h3>Hash Rate</h3>
+                        <p class="stats-value">15.2 TH/s</p>
                     </div>
                 </div>
-            </div>
-            <div class="preview-visual">
-                <div class="dashboard-preview">
-                    <div class="dashboard-header">
-                        <span>Live Mining Dashboard</span>
-                        <div class="status-indicator">
-                            <div class="status-dot"></div>
-                            <span>Active</span>
-                        </div>
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <div class="mining-gauge">
-                        <div class="gauge-fill"></div>
-                        <span class="gauge-text">85% Efficiency</span>
-                    </div>
-                    <div class="hash-rate">
-                        <span>Hash Rate: <strong>15.2 TH/s</strong></span>
+                    <div class="stats-info">
+                        <h3>Points/Hour</h3>
+                        <p class="stats-value">42.5 MP</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Power Usage</h3>
+                        <p class="stats-value">1.2 kW</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="stats-info">
+                        <h3>Referrals</h3>
+                        <p class="stats-value">8 Active</p>
+                    </div>
+                </div>
+            </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <i class="fas fa-gem"></i>
-                    <span>QuantumMine</span>
+            <!-- Mining Control Section -->
+            <section class="mining-control">
+                <div class="control-card">
+                    <h2>Mining Control</h2>
+                    <div class="mining-status">
+                        <div class="status-indicator active"></div>
+                        <span>Mining Active</span>
+                    </div>
+                    <div class="mining-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span>Next Reward: <strong>15:23</strong></span>
+                        </div>
+                    </div>
+                    <div class="control-buttons">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-play"></i> Start Mining
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-sync-alt"></i> Upgrade
+                        </button>
+                    </div>
                 </div>
-                <p>Elite crypto mining platform for the next generation of digital assets.</p>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Profil</h3>
+                    <p>Kelola informasi akun dan lihat statistik mining Anda</p>
+                    <a href="#" class="feature-link">Lihat Profil <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Referral</h3>
+                    <p>Dapatkan bonus dengan mengajak teman bergabung</p>
+                    <a href="#" class="feature-link">Lihat Referral <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Task</h3>
+                    <p>Selesaikan tugas untuk mendapatkan point tambahan</p>
+                    <a href="#" class="feature-link">Lihat Task <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>Setting</h3>
+                    <p>Atur preferensi dan pengaturan akun Anda</p>
+                    <a href="#" class="feature-link">Lihat Setting <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Mining Reward</h4>
+                            <p>Anda mendapatkan 42.5 MP</p>
+                            <span class="activity-time">10 menit lalu</span>
+                        </div>
+                        <div class="activity-amount positive">
+                            +42.5 MP
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon info">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Referral Bonus</h4>
+                            <p>Referral baru bergabung</p>
+                            <span class="activity-time">1 jam lalu</span>
+                        </div>
+                        <div class="activity-amount positive">
+                            +25.0 MP
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon warning">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Task Completed</h4>
+                            <p>Anda menyelesaikan task "Watch Video"</p>
+                            <span class="activity-time">3 jam lalu</span>
+                        </div>
+                        <div class="activity-amount positive">
+                            +10.0 MP
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MinePoint</h3>
+                    <p>Platform mining point terdepan dengan teknologi terkini untuk menghasilkan penghasilan pasif.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@minepoint.com</li>
+                        <li><i class="fas fa-globe"></i> www.minepoint.com</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#home">Home</a>
-                <a href="#features">Features</a>
-                <a href="#mining">Mining</a>
-            </div>
-            <div class="footer-section">
-                <h4>Support</h4>
-                <a href="#">Help Center</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Privacy Policy</a>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MinePoint. All rights reserved.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 QuantumMine. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
+
+    <script>
+        // Simple JavaScript untuk interaksi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update waktu mining
+            function updateMiningTime() {
+                const timeElement = document.querySelector('.progress-text strong');
+                if (timeElement) {
+                    let time = timeElement.textContent.split(':');
+                    let minutes = parseInt(time[0]);
+                    let seconds = parseInt(time[1]);
+                    
+                    seconds--;
+                    if (seconds < 0) {
+                        seconds = 59;
+                        minutes--;
+                        if (minutes < 0) {
+                            minutes = 15;
+                            seconds = 0;
+                            // Simulasikan reward mining
+                            alert('Mining reward received! +42.5 MP added to your balance.');
+                        }
+                    }
+                    
+                    timeElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }
+            
+            setInterval(updateMiningTime, 1000);
+            
+            // Toggle mining status
+            const miningButton = document.querySelector('.btn-primary');
+            const statusIndicator = document.querySelector('.status-indicator');
+            
+            if (miningButton) {
+                miningButton.addEventListener('click', function() {
+                    if (statusIndicator.classList.contains('active')) {
+                        statusIndicator.classList.remove('active');
+                        statusIndicator.classList.add('inactive');
+                        miningButton.innerHTML = '<i class="fas fa-play"></i> Start Mining';
+                    } else {
+                        statusIndicator.classList.remove('inactive');
+                        statusIndicator.classList.add('active');
+                        miningButton.innerHTML = '<i class="fas fa-pause"></i> Stop Mining';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
