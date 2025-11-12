@@ -129,3 +129,125 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe feature cards and mining stats
+document.querySelectorAll('.feature-card, .mining-stat').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// Real-time clock in dashboard preview
+function updateClock() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { 
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    
+    const clockElement = document.querySelector('.dashboard-header span');
+    if (clockElement && !clockElement.querySelector('.clock')) {
+        clockElement.innerHTML = `Live Mining Dashboard - <span class="clock">${timeString}</span>`;
+    } else if (clockElement) {
+        clockElement.querySelector('.clock').textContent = timeString;
+    }
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+// Enhanced form validation
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePassword(password) {
+    return password.length >= 6;
+}
+
+// Add real-time validation
+document.querySelectorAll('input[type="email"]').forEach(input => {
+    input.addEventListener('blur', () => {
+        if (!validateEmail(input.value)) {
+            input.style.borderColor = '#ef4444';
+        } else {
+            input.style.borderColor = '#00d4ff';
+        }
+    });
+});
+
+document.querySelectorAll('input[type="password"]').forEach(input => {
+    input.addEventListener('blur', () => {
+        if (!validatePassword(input.value)) {
+            input.style.borderColor = '#ef4444';
+        } else {
+            input.style.borderColor = '#00d4ff';
+        }
+    });
+});
+
+// Particle system enhancement
+function createParticles() {
+    const particlesContainer = document.querySelector('.particles');
+    if (!particlesContainer) return;
+    
+    // Clear existing particles
+    particlesContainer.innerHTML = '';
+    
+    // Create more particles
+    for (let i = 0; i < 8; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.animationDelay = `${Math.random() * 4}s`;
+        particlesContainer.appendChild(particle);
+    }
+}
+
+createParticles();
+
+// Add loading states for buttons
+document.querySelectorAll('button[type="submit"]').forEach(button => {
+    button.addEventListener('click', function() {
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        this.disabled = true;
+        
+        // Reset after 3 seconds (for demo)
+        setTimeout(() => {
+            this.innerHTML = originalText;
+            this.disabled = false;
+        }, 3000);
+    });
+});
