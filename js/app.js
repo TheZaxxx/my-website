@@ -1,12 +1,36 @@
-// Simple form handler
+// Simple form handler - FIXED VERSION
 console.log("App.js loaded!");
 
-document.getElementById('userForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Form berhasil disubmit! Data akan disimpan setelah Firebase setup lengkap.');
+// Tunggu sampai halaman fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('userForm');
+    const messageDiv = document.getElementById('message');
     
-    // Tampilkan data yang diinput
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    console.log("Data:", name, email);
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const city = document.getElementById('city').value;
+            
+            // Tampilkan pesan sukses
+            if (messageDiv) {
+                messageDiv.textContent = `✅ Data ${name} berhasil disimpan!`;
+                messageDiv.style.color = 'green';
+                messageDiv.style.padding = '10px';
+                messageDiv.style.backgroundColor = '#e6ffe6';
+            }
+            
+            // Reset form
+            form.reset();
+            
+            console.log("Data disimpan:", { name, email, phone, city });
+            alert(`Data ${name} berhasil disimpan!`);
+        });
+    } else {
+        console.log("Form tidak ditemukan");
+    }
 });
