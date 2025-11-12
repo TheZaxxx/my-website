@@ -1,24 +1,59 @@
-// Firebase Configuration
-// GANTI dengan config dari Firebase Console Anda
-
-
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDFjRbWcl8T6p7sEAXzbffu9uk66xCiPfo",
-  authDomain: "my-website-users-27cca.firebaseapp.com",
-  projectId: "my-website-users-27cca",
-  storageBucket: "my-website-users-27cca.firebasestorage.app",
-  messagingSenderId: "68032793973",
-  appId: "1:68032793973:web:f65498a1abfcbe145e173c",
-  measurementId: "G-NFF81CZ4SY"
+    apiKey: "your-api-key",
+    authDomain: "your-project.firebaseapp.com",
+    projectId: "your-project-id",
+    storageBucket: "your-project.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "your-app-id"
 };
 
 // Initialize Firebase
-try {
-    firebase.initializeApp(firebaseConfig);
-    console.log("Firebase berhasil diinisialisasi");
-} catch (error) {
-    console.error("Error inisialisasi Firebase:", error);
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+// Auth functions
+async function registerUser(email, password) {
+    try {
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        return userCredential.user;
+    } catch (error) {
+        throw new Error(getAuthErrorMessage(error.code));
+    }
 }
 
-// Export database instance
-const db = firebase.firestore();
+async function loginUser(email, password) {
+    try {
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        return userCredential.user;
+    } catch (error) {
+        throw new Error(getAuthErrorMessage(error.code));
+    }
+}
+
+function getAuthErrorMessage(errorCode) {
+    const messages = {
+        'auth/email-already-in-use': 'Email already registered.',
+        'auth/invalid-email': 'Invalid email address.',
+        'auth/weak-password': 'Password should be at least 6 characters.',
+        'auth/user-not-found': 'No account found with this email.',
+        'auth/wrong-password': 'Incorrect password.',
+        'auth/too-many-requests': 'Too many attempts. Try again later.'
+    };
+    
+    return messages[errorCode] || 'An error occurred. Please try again.';
+}
+
+// Auth state observer
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        console.log('User is logged in:', user.email);
+        // Update UI for logged in state
+        const dashboardBtn = document.querySelector('.dashboard-btn');
+        if (dashboardBtn) {
+            dashboardBtn.innerHTML = `<i class="fas fa-tachometer-alt"></i> Dashboard`;
+        }
+    } else {
+        console.log('User is logged out');
+    }
+});
